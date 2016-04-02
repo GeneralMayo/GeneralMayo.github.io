@@ -11,7 +11,7 @@
 <h2>Background</h2>
 <p>An overview of the algorithm is best described here: http://arxiv.org/pdf/1410.1231v1.pdf</p>
 <h3>The Main Algorithm Steps</h3>
-<p><code>
+<p>
 %algo trading
 
 %import prices and dateTime as column vectors from the csv sheet
@@ -102,7 +102,7 @@ m = length(prices1) + length(prices2); %we want to take bid/ask data from right 
 tic
 [bank,error] = brtrade(prices3, kmeans180s,kmeans360s,kmeans720s,theta,theta0,bidVolume(m:end),askVolume(m:end));
 toc
-</code></p>
+</p>
 
 
 <h2>The Challenge</h2>

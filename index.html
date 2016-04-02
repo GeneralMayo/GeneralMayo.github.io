@@ -118,15 +118,46 @@ toc
 
 
 <h2>The Challenge</h2>
-<p></p>
+<ul>
+	<li>Fully understanding the theory behind "Basian Regression" will be difficult to understand, but absolutely necessary in order for me to tune and debug the algorithm once I have it running.</li>
+	<li>There needs to be communication amongst threads during and in between each of the parallization oppertunities I described.</li>
+	<li>Linear regression can be sped up by paralelizing the matrix multiplication or by parallelizing a seris of QR decompositions. I am completely unfamiliar with the latter method and it seems to be faster.</li>
+	<li>I understand how to parallelize my code via multiple threads; however, don't know how to use multiple machines. (This was done for us in the Dynamic Web-Server Project)</li>
+</ul>
 
 <h2>Resources</h2>
+<h3>Hardware</h3>
+<ul>
+	<li>Latedays cluster machine (Xeon Phi co-processor) for preformance testing</li>
+	<li>Gates machines for functional testing</li>
+</ul>
+<h3>Software<h3>
+<ul>
+	<li>bitcoin price data set</li>
+	<li>bitcoin ask/bid data set</li>
+	<li>Matlab (to run sequential version of the data set)</li>
+	<li>Sequential matlab code found here: https://github.com/panditanvita/BTCpredictor</li>
+</ul>
 
 <h2>Goals and Deliverables</h2>
+<ul>
+	<li>Implement a sequential version of the bitcoin trading algorithm on the latedays cluster and compare the speed of this version against a parallelized version. Compare the parallelized latedays version with the parallelized matlab version running on my laptop.</li>
+	<li>Get a better understanding of how each type of parallelization strategy affects speedup of the process of training and testing trading algorithm.</li>
+	<li>Given enough time I would like to pinpoint the fastest frequency this trading algorithm would be able to trade at if it were to run on such a high end machine like latedays.</li>
+</ul>
+
 
 <h2>Platform Choice</h2>
+<p>Use the std::thread library, ISPC framework and OpenMPI to leverage all paralelization capabilities of the Xeon Phi processor on the Lateday's Cluster.</p>
 
 <h2>Schedule</h2>
+<ul>
+	<li>Fri, April 8 - Implement a sequential k-means algorithm</li>
+	<li>Fri, April 15 - Parallelize k-means algorithm + get preformance results.</li>
+	<li>Fri, April 22 - Implement a paralellized linear regression algorithm + get preformance results.</li>
+	<li>Fri, April 29 - Implement the trading algorithm + get preformance results.</li>
+	<li>Fri, May 6 - Find fastest trading frequency + tuning parameters + possibly deploy algorithm.</li>
+</ul>
 
 </body>
 </html>

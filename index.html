@@ -104,6 +104,18 @@ tic
 toc
 </xmp>
 
+<p>There are several sections of this code which can be parallelized.</p>
+<ul>
+	<li>Creating Intervals: Each bitcoin price interval is independent of the others created thus this can be done in parallel</li>
+	<li>Finding the special patterns in these price intervals with respect to how they influence the price change at the end of their periods using k-means can be done in parallel since how each interval is mapped to a centroid is independent of any other work. There are several thousand intervals of lengths 180, 360 and 720 each of which need to be mapped to a centroid every step of the k-means algorithm.</li>
+	<li>Once the top 20 clusters for each price interval lenght are found </li>
+	<li>Also it should be noted that although the algorithm displayed above only finds patterns once a live trading algorithm would do this periodically given the state of bitcoin (a global currency) changes often.</li>
+	<li>The linear regression step in the above algorithm can be parallelized given the costly matrix multiplication sections of this step and the high dimentionality of the data.</li>
+	<li>Testing how well this algorithm does with new data can also be done in parallel because unlike a live trading algorithm which will make for instance 1 trade every 10 seconds as data is steadily provided, during testing all the data already exists. Thus every trade can be made in parallel and the final results of these trades can be tallied up at the end.</li>
+</ul>
+
+
+
 
 <h2>The Challenge</h2>
 <p></p>
